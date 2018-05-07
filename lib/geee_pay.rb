@@ -5,10 +5,11 @@ require "geee_pay/version"
 require "geee_pay/utils/md5"
 require "geee_pay/utils/http_post"
 require "geee_pay/service"
+require "geee_pay/result"
 
 module GeeePay
   @client_params = {}
-  @client_options = {}
+  @client_query_params = {}
   @debug_mode = true
   @version = '1.0'
   @trans_type = '008'
@@ -24,7 +25,7 @@ module GeeePay
   # 订单状态查询-接口
   SERVICE_ORDER_QUERY = 'OrderStatusQuery.do'
   # 帐户余额查询-接口
-  SERVICE_ORDER_QUERY = 'QueryMerBalance.do'
+  SERVICE_BALANCE_QUERY = 'QueryMerBalance.do'
 
   class<< self
     # mer_id 商户账号
@@ -43,6 +44,13 @@ module GeeePay
                 "signType" => @sign_type}
       @client_params = params
       @client_params
+    end
+
+    def client_query_params
+      params = {"merId" => @mer_id,
+                "signType" => @sign_type}
+      @client_query_params = params
+      @client_query_params
     end
 
     def debug_mode?
