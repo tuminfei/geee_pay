@@ -1,5 +1,4 @@
 require 'digest/md5'
-require 'uuid'
 
 require "geee_pay/version"
 require "geee_pay/engine"
