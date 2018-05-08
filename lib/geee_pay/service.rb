@@ -134,9 +134,10 @@ module GeeePay
                     "prdDesc" => prd_desc,
                     "merParam" => mer_param}
       post_params = GeeePay.client_params.merge(options).merge(input_hash)
-      #调用查询接口
-      msg = GeeePay::Utils::HttpPost.send_post(service_name, post_params, GeeePay.mer_key)
-      msg
+      # 调用查询接口
+      msg, html_content = GeeePay::Utils::HttpPost.send_post(service_name, post_params, GeeePay.mer_key)
+      # 网银支付接口接口竟然返回html, O !!! M !!! G !!!
+      html_content
     end
 
     ########################查询类接口########################
@@ -147,7 +148,7 @@ module GeeePay
       service_name = GeeePay::SERVICE_ORDER_QUERY
       input_hash = {"prdOrdNo" => prd_ord_No}
       post_params = GeeePay.client_query_params.merge(options).merge(input_hash)
-      #调用查询接口
+      # 调用查询接口
       msg = GeeePay::Utils::HttpPost.send_post(service_name, post_params, GeeePay.mer_key)
       msg
     end

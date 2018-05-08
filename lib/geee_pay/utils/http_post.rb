@@ -20,6 +20,7 @@ module GeeePay
 
         response = conn.post '', func_all_params
         html_response = response.body
+        html_content = ''
 
         if GeeePay.debug_mode
           log_file = File.join(Rails.root, "log", "geee_pay.log")
@@ -35,9 +36,10 @@ module GeeePay
         begin
           msg = JSON.parse(html_response)
         rescue JSON::ParserError => e
+          html_content = html_response
           msg = JSON.parse(DEFAULT_ERR_MSG)
         end
-        msg
+        return msg, html_content
       end
     end
   end
