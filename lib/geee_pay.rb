@@ -2,10 +2,12 @@ require 'digest/md5'
 require 'uuid'
 
 require "geee_pay/version"
+require "geee_pay/engine"
 require "geee_pay/utils/md5"
 require "geee_pay/utils/http_post"
 require "geee_pay/service"
 require "geee_pay/result"
+require "geee_pay/railtie" if defined?(Rails)
 
 module GeeePay
   @client_params = {}
