@@ -6,9 +6,9 @@ module GeeePay
       # 生成md5签名
       def self.sign(params, key)
         # 删除空值
-
+        nonull_params = params.delete_if {|key, value| value.nil? or value == ''}
         # 排序
-        data_hash = sorted_hash(params)
+        data_hash = sorted_hash(nonull_params)
         # 拼接
         data_arr = []
         data_hash.each do |k,v|
@@ -16,7 +16,7 @@ module GeeePay
         end
         data_arr << "key=#{key}"
         data_str = data_arr.join('&')
-        return crypt_md5(data_str)
+        return crypt_md5(data_str), data_str
       end
 
       # 排序
