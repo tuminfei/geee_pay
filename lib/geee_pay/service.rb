@@ -34,7 +34,7 @@ module GeeePay
                     "prdShortName" => prd_short_name,
                     "prdDesc" => prd_desc,
                     "merParam" => mer_param}
-      post_params = NeotelisPay.client_params.merge(options).merge(input_hash)
+      post_params = GeeePay.client_params.merge(options).merge(input_hash)
       #调用查询接口
       msg = GeeePay::Utils::HttpPost.send_post(service_name, post_params, GeeePay.mer_key)
       msg
@@ -88,7 +88,7 @@ module GeeePay
                     "rcvBranchName" => rcv_branch_name,
                     "outaccounttype" => out_account_type,
                     "note" => note}
-      post_params = NeotelisPay.client_params.merge(options).merge(input_hash)
+      post_params = GeeePay.client_params.merge(options).merge(input_hash)
       #调用查询接口
       msg = GeeePay::Utils::HttpPost.send_post(service_name, post_params, GeeePay.mer_key)
       msg
@@ -133,7 +133,7 @@ module GeeePay
                     "prdShortName" => prd_short_name,
                     "prdDesc" => prd_desc,
                     "merParam" => mer_param}
-      post_params = NeotelisPay.client_params.merge(options).merge(input_hash)
+      post_params = GeeePay.client_params.merge(options).merge(input_hash)
       #调用查询接口
       msg = GeeePay::Utils::HttpPost.send_post(service_name, post_params, GeeePay.mer_key)
       msg
@@ -146,7 +146,7 @@ module GeeePay
     def self.query_order_status(prd_ord_No, options={})
       service_name = GeeePay::SERVICE_ORDER_QUERY
       input_hash = {"prdOrdNo" => prd_ord_No}
-      post_params = NeotelisPay.client_query_params.merge(options).merge(input_hash)
+      post_params = GeeePay.client_query_params.merge(options).merge(input_hash)
       #调用查询接口
       msg = GeeePay::Utils::HttpPost.send_post(service_name, post_params, GeeePay.mer_key)
       msg
@@ -155,7 +155,7 @@ module GeeePay
     # 帐户余额查询
     def self.query_mer_balance(options={})
       service_name = GeeePay::SERVICE_BALANCE_QUERY
-      post_params = NeotelisPay.client_query_params.merge(options)
+      post_params = GeeePay.client_query_params.merge(options)
       #调用查询接口
       msg = GeeePay::Utils::HttpPost.send_post(service_name, post_params, GeeePay.mer_key)
       msg

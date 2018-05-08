@@ -21,7 +21,7 @@ module GeeePay
         response = conn.post '', func_all_params
         html_response = response.body
 
-        if NeotelisPay.debug_mode
+        if GeeePay.debug_mode
           log_file = File.join(Rails.root, "log", "geee_pay.log")
           logger = Logger.new(log_file)
           logger.info('--------------GEEE PAY DEBUG--------------')
