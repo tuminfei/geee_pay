@@ -28,6 +28,9 @@ module GeeePay
   # 帐户余额查询-接口
   SERVICE_BALANCE_QUERY = 'QueryMerBalance.do'
 
+  # 接口路径
+  API_POST_NOTICE_URL = '/api/geee_pay/notify'
+
   class<< self
     # mer_id 商户账号
     # mer_key 加密key
