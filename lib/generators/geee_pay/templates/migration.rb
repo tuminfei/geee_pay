@@ -1,4 +1,4 @@
-class CreateSuningPayNotices < ActiveRecord::Migration
+class CreateGeeePayNotices < ActiveRecord::Migration
   def self.up
     create_table :geee_pay_notices do |t|
       t.string  :version_id
