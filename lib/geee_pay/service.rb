@@ -62,7 +62,7 @@ module GeeePay
     # provinceName	省份
     # cityname 	城市
     # note 	摘要
-    def self.post_withdraw_apply(order_amount, order_date, currency, asyn_notify_url, prd_ord_no, pay_mode,
+    def self.post_withdraw_apply(order_amount, order_date, currency, asyn_notify_url, prd_ord_no,
         receivable_type, is_compay, phone_no, customer_name, cerd_id, acc_bank_no, acc_bank_name, acct_no,
         rcv_branch_code, bank_branch, province_name, city_name,  cerd_type='', rcv_branch_name='', out_account_type='', note='', options={})
       service_name = GeeePay::SERVICE_WITHDRAW_APPLY
@@ -71,7 +71,6 @@ module GeeePay
                     "currency" => currency,
                     "asynNotifyUrl" => asyn_notify_url,
                     "prdOrdNo" => prd_ord_no,
-                    "payMode" => pay_mode,
                     "receivableType" => receivable_type,
                     "isCompay" => is_compay,
                     "phoneNo" => phone_no,
