@@ -18,6 +18,9 @@ module GeeePay
         func_all_params = query_params.merge(func_params)
         conn = Faraday.new(:url => api_url)
 
+        # 设置超时时间
+        conn.options.timeout = 20
+
         response = conn.post '', func_all_params
         html_response = response.body
         html_content = ''
